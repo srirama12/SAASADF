@@ -1,0 +1,41 @@
+{
+	"name": "Customer_Master",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Data_Lake_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Job_Execution_Summary_Key": {
+				"type": "string"
+			},
+			"Schema": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Data_Lake"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@{string(dataset().Job_Execution_Summary_Key)}/Customer_Master",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().Schema",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

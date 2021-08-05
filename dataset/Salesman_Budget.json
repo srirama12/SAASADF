@@ -1,0 +1,118 @@
+{
+	"name": "Salesman_Budget",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Data_Lake_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Job_Execution_Summary_Key": {
+				"type": "string"
+			},
+			"Schema": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Data_Lake"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@{string(dataset().Job_Execution_Summary_Key)}/Salesman_Budget",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().Schema",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "COMPANY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "BRANCH_CODE",
+				"type": "String"
+			},
+			{
+				"name": "LOCATION_CODE",
+				"type": "String"
+			},
+			{
+				"name": "SECTOR_SALESMAN",
+				"type": "String"
+			},
+			{
+				"name": "SALESMAN_CODE",
+				"type": "String"
+			},
+			{
+				"name": "YEAR",
+				"type": "String"
+			},
+			{
+				"name": "MONTH_ID",
+				"type": "String"
+			},
+			{
+				"name": "DAY_ID",
+				"type": "String"
+			},
+			{
+				"name": "FOCUS_TRADE_LANE",
+				"type": "String"
+			},
+			{
+				"name": "SEGMENT_CODE",
+				"type": "String"
+			},
+			{
+				"name": "POR_COUNTRY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "POR_PORT_CODE",
+				"type": "String"
+			},
+			{
+				"name": "FDC_COUNTRY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "FDC_PORT_CODE",
+				"type": "String"
+			},
+			{
+				"name": "WHO_ROUTED",
+				"type": "String"
+			},
+			{
+				"name": "CURRENCY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "PROFIT",
+				"type": "String"
+			},
+			{
+				"name": "SHIPMENTS",
+				"type": "String"
+			},
+			{
+				"name": "UNITS",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

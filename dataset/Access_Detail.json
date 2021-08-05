@@ -1,0 +1,78 @@
+{
+	"name": "Access_Detail",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Data_Lake_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Job_Execution_Summary_Key": {
+				"type": "string"
+			},
+			"Schema": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Data_Lake"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@{string(dataset().Job_Execution_Summary_Key)}/Access_Detail",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().Schema",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "QUOTATION_NO",
+				"type": "String"
+			},
+			{
+				"name": "NEW_EFS_QUOTATION_NO",
+				"type": "String"
+			},
+			{
+				"name": "QUOTATION_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CREATE_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CREATE_USER",
+				"type": "String"
+			},
+			{
+				"name": "FEEDBACK",
+				"type": "String"
+			},
+			{
+				"name": "COMPANY_CODE",
+				"type": "String"
+			},
+			{
+				"name": "BRANCH_CODE",
+				"type": "String"
+			},
+			{
+				"name": "RUN_DATE",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

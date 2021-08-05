@@ -1,0 +1,9 @@
+{
+	"name": "prod-newage-adfv2",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "be19e731-33dd-4e3f-ac28-2c85ff1cd170",
+		"tenantId": "25bb5297-c9a5-4d20-b130-d51707bd807c"
+	}
+}
